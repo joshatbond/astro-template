@@ -1,38 +1,12 @@
-# Astro Starter Kit
+# Astro Portfolio
 
-This project is my default starting point for Astro projects. It comes with:
+This project is scaffolded from my [astro-template](https://github.com/joshatbond/astro-template) repository, and is my personal portfolio site ported to Astro from Next.js featuring:
 
 - [Bun](https://bun.sh/)
 - [Astro](https://astro.build/)
 - [Typescript](https://www.typescriptlang.org/)
 - [A fleshed-out prettier config](https://prettier.io/)
 - [Tailwind CSS](https://tailwindcss.com/docs/)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── layouts/
-│   └── Layout.astro
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## Using This Template
-
-1. Create a new repository on GitHub
-2. Set the origin: `git remote set-url <new repo url>`
-3. Set the upstream: `git remote add upstream git@github.com:joshatbond/astro-template.git`
-4. Push to the new repo: `git push -u origin main`
 
 ## 🧞 Commands
 
