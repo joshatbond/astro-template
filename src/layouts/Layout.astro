@@ -1,11 +1,15 @@
 ---
+import '../styles/globals.css'
+import Github from '../components/github.astro'
+import Linkedin from '../components/linkedin.astro'
+
 type Props = { description?: string; title?: string }
 
 const { description, title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en" class="bg-gray-900 text-white">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
 
@@ -13,6 +17,7 @@ const { description, title } = Astro.props
     <meta name="description" content={description ?? ''} />
     <meta name="generator" content={Astro.generator} />
 
+    <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,7 +28,40 @@ const { description, title } = Astro.props
     <title>{title ?? 'Astro Starter'}</title>
   </head>
 
-  <body>
+  <body class="bg-gray-900 text-white">
+    <header class="border-b border-gray-800 bg-gray-900 p-4 lg:p-8">
+      <div class="mx-auto flex max-w-screen-lg items-center justify-between">
+        <a class="flex items-center justify-center" href="#">
+          <span class="sr-only">Joshua Richardson Portfolio</span>
+          <span class="text-xl font-bold text-cyan-400 lg:text-2xl">JR</span>
+        </a>
+        <nav class="flex gap-6">
+          <a href="#" class="text-white transition-colors hover:text-cyan-400">
+            <Github class="h-6 w-6 lg:h-8 lg:w-8" />
+            <span class="sr-only">GitHub</span>
+          </a>
+          <a href="#" class="text-white transition-colors hover:text-cyan-400">
+            <Linkedin class="h-6 w-6 lg:h-8 lg:w-8" />
+            <span class="sr-only">LinkedIn</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
     <slot />
+
+    <footer
+      class="w-full shrink-0 border-t border-gray-800 px-4 py-6 lg:px-8 lg:py-8"
+    >
+      <div
+        class="container mx-auto flex flex-col items-center justify-between sm:flex-row"
+      >
+        <p class="text-xs text-gray-400 lg:text-sm">
+          {
+            `© ${new Date().getFullYear()} Joshua Richardson. All rights reserved.`
+          }
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
