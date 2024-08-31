@@ -9,7 +9,7 @@ const { description, title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
 
@@ -31,16 +31,24 @@ const { description, title } = Astro.props
   <body class="bg-gray-900 text-white">
     <header class="border-b border-gray-800 bg-gray-900 p-4 lg:p-8">
       <div class="mx-auto flex max-w-screen-lg items-center justify-between">
-        <a class="flex items-center justify-center" href="#">
+        <a class="flex items-center justify-center" href="/">
           <span class="sr-only">Joshua Richardson Portfolio</span>
           <span class="text-xl font-bold text-cyan-400 lg:text-2xl">JR</span>
         </a>
         <nav class="flex gap-6">
-          <a href="#" class="text-white transition-colors hover:text-cyan-400">
+          <a
+            href="https://github.com/joshatbond"
+            target="_blank"
+            class="text-white transition-colors hover:text-cyan-400"
+          >
             <Github class="h-6 w-6 lg:h-8 lg:w-8" />
             <span class="sr-only">GitHub</span>
           </a>
-          <a href="#" class="text-white transition-colors hover:text-cyan-400">
+          <a
+            href="https://www.linkedin.com/in/richardson-joshua/"
+            target="_blank"
+            class="text-white transition-colors hover:text-cyan-400"
+          >
             <Linkedin class="h-6 w-6 lg:h-8 lg:w-8" />
             <span class="sr-only">LinkedIn</span>
           </a>

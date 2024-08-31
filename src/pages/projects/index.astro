@@ -1,0 +1,90 @@
+---
+import { ExternalLink } from 'lucide-react'
+
+import { Card, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import Github from '@/components/github.astro'
+import Layout from '@/layouts/Layout.astro'
+import { projects } from '@/data/projects'
+---
+
+<Layout>
+  <main class="flex-1 px-4 lg:px-8">
+    <section class="py-12">
+      <h1
+        class="mb-8 min-h-[42px] bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-center text-4xl font-bold text-transparent lg:mb-12 lg:min-h-[54px] lg:text-5xl"
+      >
+        My Projects
+      </h1>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          projects.map(project => (
+            <Card className="bg-gray-800 grid grid-rows-[auto_1fr] border-gray-700 overflow-hidden hover:shadow-lg hover:shadow-cyan-500/10 transition-shadow duration-300">
+              <img
+                src={project.image}
+                alt={`Screenshot of ${project.title}`}
+                width={600}
+                height={400}
+                class="h-48 w-full object-cover"
+              />
+              <div class="grid grid-rows-[auto_1fr_auto] gap-4 px-4 py-2">
+                <div>
+                  <CardTitle className="text-lg text-cyan-400">
+                    {project.title}
+                  </CardTitle>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="flex flex-wrap gap-1">
+                    {project.technologies.map(tech => (
+                      <Badge
+                        variant="secondary"
+                        className="bg-gray-700 px-1.5 py-0.5 text-xs text-cyan-400"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <p class="mb-2 text-sm text-gray-400">
+                    {project.description}
+                  </p>
+                </div>
+
+                {project.liveUrl || project.githubUrl ? (
+                  <div class="flex justify-between">
+                    {project.liveUrl ? (
+                      <a href={project.liveUrl}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="text-cyan-400 hover:text-cyan-300 hover:bg-gray-700 px-2"
+                        >
+                          <ExternalLink className="mr-1 h-3 w-3" />
+                          Product Page
+                        </Button>
+                      </a>
+                    ) : null}
+                    {project.githubUrl ? (
+                      <a href={project.githubUrl}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="text-cyan-400 hover:text-cyan-300 hover:bg-gray-700 px-2"
+                        >
+                          <Github class="mr-1 h-3 w-3" />
+                          Source
+                        </Button>
+                      </a>
+                    ) : null}
+                  </div>
+                ) : null}
+              </div>
+            </Card>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
