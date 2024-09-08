@@ -51,6 +51,12 @@ import { Button } from '../components/ui/button'
   const main = document.querySelector('main')
 
   if (!header || !main) throw new Error('Elements not found')
-  const { height } = window.getComputedStyle(header)
+  let height = window.getComputedStyle(header).height
   main.style.setProperty('--main-height', `calc(100vh - ${height})`)
+
+  const observer = new MutationObserver(() => {
+    const { height } = window.getComputedStyle(header)
+    main.style.setProperty('--main-height', `calc(100vh - ${height})`)
+  })
+  observer.observe(header, { attributes: true, attributeFilter: ['style'] })
 </script>
