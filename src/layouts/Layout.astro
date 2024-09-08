@@ -75,3 +75,17 @@ const { description, title } = Astro.props
     </footer>
   </body>
 </html>
+
+<script>
+  const header = document.querySelector('header')
+
+  if (!header) throw new Error('Elements not found')
+  let height = window.getComputedStyle(header).height
+  document.body.style.setProperty('--body-height', `calc(100vh - ${height})`)
+
+  const observer = new MutationObserver(() => {
+    const { height } = window.getComputedStyle(header)
+    document.body.style.setProperty('--body-height', `calc(100vh - ${height})`)
+  })
+  observer.observe(header, { attributes: true, attributeFilter: ['style'] })
+</script>
