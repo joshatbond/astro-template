@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button'
 
 <Layout>
   <main
-    class="flex min-h-[100dvh] max-w-screen-xl flex-col bg-gray-900 text-gray-100"
+    class="flex min-h-[--main-height] max-w-screen-xl flex-col bg-gray-900 text-gray-100 lg:mx-auto"
   >
     <article
       class="grid flex-1 place-content-center gap-y-6 px-4 text-center lg:gap-y-8 lg:px-8"
@@ -45,3 +45,12 @@ import { Button } from '../components/ui/button'
     </article>
   </main>
 </Layout>
+
+<script>
+  const header = document.querySelector('header')
+  const main = document.querySelector('main')
+
+  if (!header || !main) throw new Error('Elements not found')
+  const { height } = window.getComputedStyle(header)
+  main.style.setProperty('--main-height', `calc(100vh - ${height})`)
+</script>
