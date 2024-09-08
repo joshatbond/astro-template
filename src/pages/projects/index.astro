@@ -21,13 +21,15 @@ import { projects } from '@/data/projects'
         {
           projects.map(project => (
             <Card className="group bg-gray-800 grid grid-rows-[auto_1fr] border-gray-700 overflow-hidden hover:shadow-lg hover:shadow-cyan-500/10 transition-shadow duration-300">
-              <div class="h-52 overflow-hidden">
+              <div class="relative h-52 overflow-hidden">
+                <div class="h-full w-full bg-blue-950" />
                 <img
                   src={project.image}
                   alt={`Screenshot of ${project.title}`}
                   width={600}
                   height={400}
-                  class="h-full w-full object-cover transition-all duration-300 group-hover:scale-110"
+                  class="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-300 group-hover:scale-110"
+                  onload="this.style.opacity = 1"
                 />
               </div>
               <div class="grid grid-rows-[auto_1fr_auto] gap-4 px-4 py-2">
