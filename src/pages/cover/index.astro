@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import CoverLetterGenerator from './_components/Generator'
+---
+
+<Layout title="Cover">
+  <main
+    class="flex min-h-[--body-height] max-w-screen-xl flex-col bg-gray-900 text-gray-100 lg:mx-auto"
+  >
+    <article class="relative flex-1 p-4 lg:p-8">
+      <CoverLetterGenerator client:load />
+    </article>
+  </main>
+</Layout>
